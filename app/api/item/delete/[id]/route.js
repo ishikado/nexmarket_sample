@@ -6,8 +6,13 @@ export async function DELETE(request, context){
     try{
       await connectDB()
       const unwrapParams = await context.params
-      await ItemModel.deleteOne({_id: unwrapParams.id})
-      return NextResponse.json({message: "アイテム削除成功"})
+      const singleItem = await ItemModel.findById(unwrapParams.id)
+      if(singleItem.email == reqBody.email) {
+        await ItemModel.deleteOne({_id: unwrapParams.id})
+        return NextResponse.json({message: "アイテム削除成功"})
+      } else {
+        return NextResponse.json({message: "他の人が作成したアイテムです"})
+      }
     }catch (error) {
       console.log(error)
       return NextResponse.json({message: "アイテム削除失敗"})
