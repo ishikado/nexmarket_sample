@@ -5,8 +5,6 @@ import { jwtVerify } from "jose"
 export async function middleware(request) {
   
   //const token = await request.headers.get("Authorization")?.split(" ")[1]
-  // const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGdtYWlsaS5jb20iLCJleHAiOjE3Njk4NjQ4Nzl9.mRiLlRMVislJeUMOuuuKaK0tK6zv4gAnvIEoIw3U1AU"
-
   const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15QGdtYWlsaS5jb20iLCJleHAiOjE3NzAwNDMzMzB9.HyUHsmohrnvmrOG6-0mp7nm_72_-EoEirgSrEpc7ak8"
 
   if(!token) {
